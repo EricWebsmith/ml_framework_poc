@@ -6,6 +6,22 @@ First, let's look at the UI.
 
 From this UI, we can generate a config.json file which is consumed by the backend.
 
+
+
+You can click the buttons in the left to add workflow nodes to the workflow section in the middle.
+
+
+
+You can right click the workflow nodes to move up, move down or delete the workflow node.
+
+
+
+In the property section, the properties of the nodes are set.
+
+
+
+The UI is release [here](https://github.com/EricWebsmith/ml_framework_poc/releases/tag/1).
+
 # Backend
 
 The backend will use this config.json to build a model.
