@@ -13,7 +13,7 @@ namespace ui
         public static string Generate(IEnumerable<Activity> activities)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("{\"model_id\":\"13254654\",\"model_name\":\"rnn1\",\"pipepline\":[");
+            sb.Append("{\"model_id\":\"13254654\",\"model_name\":\"my_model\",\"pipepline\":[");
             foreach(Activity activity in activities)
             {
                 sb.Append($"{{\"class\":\"{activity.ClassName}\",\"mod_config\":{{");

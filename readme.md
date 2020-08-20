@@ -22,6 +22,46 @@ In the property section, the properties of the nodes are set.
 
 The UI is release [here](https://github.com/EricWebsmith/ml_framework_poc/releases/tag/1).
 
+Or you can write the config.json file yourself, as follow:
+
+```json
+{
+    "model_id": "13254654", 
+    "model_name": "my_name", 
+    "pipepline": [
+        {
+            "class": "tf_modules.CsvImporter", 
+            "mod_config": {
+                "filepath": "/projects/ml_framework_poc/py/tatanic.csv", 
+                "classname": "tf_modules.CsvImporter", 
+                "name": ""
+            }
+        }, 
+        {
+            "class": "tf_modules.OrdinalEncoder", 
+            "mod_config": {
+                "columns": "Sex", 
+                "classname": "tf_modules.OrdinalEncoder", 
+                "name": ""
+            }
+        }, 
+        {
+            "class": "tf_modules.DecisionTreeClassifier", 
+            "mod_config": {
+                "features": "Pclass,Sex,SibSp,Parch,Fare", 
+                "label": "Survived", 
+                "max_depth": 5, 
+                "model_path": "dt.model", 
+                "classname": "tf_modules.DecisionTreeClassifier", 
+                "name": ""
+            }
+        }
+    ]
+}
+```
+
+
+
 # Backend
 
 The backend will use this config.json to build a model.
