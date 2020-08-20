@@ -1,7 +1,7 @@
 import unittest
 import job_executor
 
-class TestStringMethods(unittest.TestCase):
+class MLTests(unittest.TestCase):
 
     def test_1(self):
         job_executor.execute("test_case_1_lr.json")

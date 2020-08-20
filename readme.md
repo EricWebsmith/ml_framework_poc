@@ -28,7 +28,9 @@ The backend will use this config.json to build a model.
 
 
 
-![Demo](images/demo.png)
+```pyhton
+python job_executor.py config.json
+```
 
 
 
@@ -46,7 +48,7 @@ The unit test is quite easy to write:
 import unittest
 import job_executor
 
-class TestStringMethods(unittest.TestCase):
+class MLTests(unittest.TestCase):
 
     def test_1(self):
         job_executor.execute("test_case_1_lr.json")

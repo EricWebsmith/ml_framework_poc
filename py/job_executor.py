@@ -1,4 +1,5 @@
 import json
+import sys
 
 def my_import(name):
     components = name.split('.')
@@ -19,3 +20,6 @@ def execute(config_file):
         inputs=obj.execute(inputs, mod_config)
         results.append(inputs['data'])
 
+if __name__=="__main__":
+    config_file=sys.argv[1]
+    execute(config_file)
