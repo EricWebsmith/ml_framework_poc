@@ -101,6 +101,12 @@ namespace ui
             Refresh();
         }
 
+        private void gradientBoostingClassifierButton_Click(object sender, EventArgs e)
+        {
+            Activities.Add(new GradientBoostingClassifier());
+            Refresh();
+        }
+
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem menu = (ToolStripMenuItem)sender;

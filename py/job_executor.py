@@ -9,7 +9,10 @@ def my_import(name):
     return mod
 
 def execute(config_file):
-    config=json.load(open(config_file))
+    config={}
+    with open(config_file) as f:
+        config=json.load(f)
+        f.close()
     inputs = {}
     results = []
     for step in config['pipepline']:

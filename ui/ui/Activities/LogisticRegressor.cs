@@ -16,6 +16,6 @@ namespace ui.Activities
         [CategoryAttribute("Machine Learning")]
         public string Model_Path { get; set; }
 
-        public override string ClassName { get { return "tf_modules.LogisticRegressor"; } }
+        public override string ClassName { get { return "ml_modules.LogisticRegressor"; } }
     }
 }

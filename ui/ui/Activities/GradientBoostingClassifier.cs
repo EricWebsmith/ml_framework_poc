@@ -5,13 +5,16 @@ using System.Text;
 
 namespace ui.Activities
 {
-    public class DecisionTreeClassifier : Activity
+    public class GradientBoostingClassifier : Activity
     {
         [CategoryAttribute("Machine Learning")]
         public string Features { get; set; }
 
         [CategoryAttribute("Machine Learning")]
         public string Label { get; set; }
+
+        [CategoryAttribute("Machine Learning")]
+        public int N_Estimators { get; set; }
 
         [CategoryAttribute("Machine Learning")]
         public int Max_Depth { get; set; }

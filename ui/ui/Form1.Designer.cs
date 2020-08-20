@@ -35,6 +35,7 @@
             this.moveDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workflowGroupBox = new System.Windows.Forms.GroupBox();
             this.buttonGroupBox = new System.Windows.Forms.GroupBox();
+            this.gradientBoostingClassifierButton = new System.Windows.Forms.Button();
             this.logisticRegressorButton = new System.Windows.Forms.Button();
             this.decisionTreeButton = new System.Windows.Forms.Button();
             this.ordinalEncoderButton = new System.Windows.Forms.Button();
@@ -91,6 +92,7 @@
             // 
             // buttonGroupBox
             // 
+            this.buttonGroupBox.Controls.Add(this.gradientBoostingClassifierButton);
             this.buttonGroupBox.Controls.Add(this.logisticRegressorButton);
             this.buttonGroupBox.Controls.Add(this.decisionTreeButton);
             this.buttonGroupBox.Controls.Add(this.ordinalEncoderButton);
@@ -104,6 +106,17 @@
             this.buttonGroupBox.TabIndex = 7;
             this.buttonGroupBox.TabStop = false;
             this.buttonGroupBox.Text = "Machine Learning Controls";
+            // 
+            // gradientBoostingClassifierButton
+            // 
+            this.gradientBoostingClassifierButton.Location = new System.Drawing.Point(8, 302);
+            this.gradientBoostingClassifierButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gradientBoostingClassifierButton.Name = "gradientBoostingClassifierButton";
+            this.gradientBoostingClassifierButton.Size = new System.Drawing.Size(210, 31);
+            this.gradientBoostingClassifierButton.TabIndex = 0;
+            this.gradientBoostingClassifierButton.Text = "Gradient Boosting Classifier";
+            this.gradientBoostingClassifierButton.UseVisualStyleBackColor = true;
+            this.gradientBoostingClassifierButton.Click += new System.EventHandler(this.gradientBoostingClassifierButton_Click);
             // 
             // logisticRegressorButton
             // 
@@ -220,6 +233,7 @@
         private System.Windows.Forms.Button logisticRegressorButton;
         private System.Windows.Forms.Button decisionTreeButton;
         private System.Windows.Forms.Button ordinalEncoderButton;
+        private System.Windows.Forms.Button gradientBoostingClassifierButton;
     }
 }
 

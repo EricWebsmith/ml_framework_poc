@@ -87,13 +87,40 @@ class DecisionTreeClassifier():
         model_path= mod_config['model_path']
         dump(model, model_path)
         return {"data":"success", "score": score}
+
+class GradientBoostingClassifier():
+    def execute(self, inputs:dict, mod_config:dict):
+        from sklearn.ensemble import GradientBoostingClassifier
+        from sklearn.model_selection import train_test_split
+        from joblib import dump
+        data=inputs["data"]
+        features = mod_config['features'].split(",")
+        X=data[features]
+        label = mod_config['label']
+        y=data[label]
+        X_train, X_test, y_train, y_test = train_test_split(X, y)
+        n_estimators = mod_config['n_estimators']
+        max_depth = mod_config['max_depth']
+
+        model = GradientBoostingClassifier(n_estimators=n_estimators, max_depth=max_depth)
+        model.fit(X_train, y_train)
+        score = model.score(X_test, y_test)
+
+        print(f'score {score}')
+
+        model_path= mod_config['model_path']
+        dump(model, model_path)
+        return {"data":"success", "score": score}
     
 class CsvExporter():
     def execute(self, inputs:dict, mod_config:dict):
         data=inputs["data"]
         if type(data) is np.ndarray:
             data=pd.DataFrame(data)
+        elif type(data) is pd.core.frame.DataFrame:
+            pass
         else:
+            print(type(data))
             raise NotImplementedError("Subclasses should implement this!")
         file_path=mod_config['filepath']
         data.to_csv(file_path, index=False)

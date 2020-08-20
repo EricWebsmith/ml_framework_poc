@@ -10,6 +10,6 @@ namespace ui
         [CategoryAttribute("Machine Learning")]
         public string FilePath { get; set; }
 
-        public override string ClassName { get { return "tf_modules.CsvExporter"; } }
+        public override string ClassName { get { return "ml_modules.CsvExporter"; } }
     }
 }

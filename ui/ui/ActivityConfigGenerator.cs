@@ -1,14 +1,10 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace ui
 {
-   public static class ActivityConfigGenerator
+    public static class ActivityConfigGenerator
     {
         public static string Generate(IEnumerable<Activity> activities)
         {
