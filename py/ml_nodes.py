@@ -1,12 +1,25 @@
 import numpy as np
 import pandas as pd
 
-
 class CsvImporter():
     def execute(self, inputs:dict, mod_config:dict):
         csv_path=mod_config['filepath']
         data=pd.read_csv(csv_path)
         return {"data":data}
+
+class CsvExporter():
+    def execute(self, inputs:dict, mod_config:dict):
+        data=inputs["data"]
+        if type(data) is np.ndarray:
+            data=pd.DataFrame(data)
+        elif type(data) is pd.core.frame.DataFrame:
+            pass
+        else:
+            print(type(data))
+            raise NotImplementedError("Subclasses should implement this!")
+        file_path=mod_config['filepath']
+        data.to_csv(file_path, index=False)
+        return {"data":"success"}
 
 class FeatureSelector():
     def execute(self, inputs:dict, mod_config:dict):
@@ -112,16 +125,47 @@ class GradientBoostingClassifier():
         dump(model, model_path)
         return {"data":"success", "score": score}
     
-class CsvExporter():
+
+class LinearRegressor():
     def execute(self, inputs:dict, mod_config:dict):
+        from sklearn.linear_model import LinearRegression
+        from sklearn.model_selection import train_test_split
+        from joblib import dump
         data=inputs["data"]
-        if type(data) is np.ndarray:
-            data=pd.DataFrame(data)
-        elif type(data) is pd.core.frame.DataFrame:
-            pass
-        else:
-            print(type(data))
-            raise NotImplementedError("Subclasses should implement this!")
-        file_path=mod_config['filepath']
-        data.to_csv(file_path, index=False)
-        return {"data":"success"}
+        features = mod_config['features'].split(",")
+        X=data[features]
+        label = mod_config['label']
+        y=data[label]
+        X_train, X_test, y_train, y_test = train_test_split(X, y)
+        fit_intercept = mod_config['fit_intercept']
+        model = LinearRegression(fit_intercept=fit_intercept)
+        model.fit(X_train, y_train)
+        score = model.score(X_test, y_test)
+        print(f'score {score}')
+
+        model_path= mod_config['model_path']
+        dump(model, model_path)
+
+        return {"data":"success", "score": score}
+
+class ElasticNet():
+    def execute(self, inputs:dict, mod_config:dict):
+        from sklearn.linear_model import ElasticNet
+        from sklearn.model_selection import train_test_split
+        from joblib import dump
+        data=inputs["data"]
+        features = mod_config['features'].split(",")
+        X=data[features]
+        label = mod_config['label']
+        y=data[label]
+        X_train, X_test, y_train, y_test = train_test_split(X, y)
+        fit_intercept = mod_config['fit_intercept']
+        model = ElasticNet(fit_intercept=fit_intercept)
+        model.fit(X_train, y_train)
+        score = model.score(X_test, y_test)
+        print(f'score {score}')
+
+        model_path= mod_config['model_path']
+        dump(model, model_path)
+
+        return {"data":"success", "score": score}

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace ui
 {
-    public abstract class Activity
+    public abstract class Node
     {
         [CategoryAttribute("Machine Learning")]
         public string Name { get; set; }

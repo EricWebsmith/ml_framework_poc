@@ -1,0 +1,33 @@
+language: python
+dist: xenial
+
+env:
+  global:
+    PIP_PREFER_BINARY=true # https://github.com/numba/llvmlite/issues/471
+
+python:
+  - "3.7-dev"  # 3.7 development branch
+  - "3.7"
+  - "3.8-dev"  # 3.8 development branch
+  - "3.8"
+
+install:
+  - pip install --upgrade pip
+  - pip install -r requirements_ci.txt
+  - pip install pytest
+  - pip install pytest-cov
+  - pip install coveralls
+
+# command to run tests
+script:
+   pytest --cov=pyod/
+
+after_success:
+  - coveralls
+
+notifications:
+  email:
+    recipients:
+      - zhouweiguang@hotmail.com
+  on_success: never # default: change
+  on_failure: always # default: always

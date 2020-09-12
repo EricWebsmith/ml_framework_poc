@@ -15,14 +15,14 @@ def execute(config_file):
         f.close()
     inputs = {}
     results = []
-    for step in config['pipepline']:
-        #print(step)
-        the_class=my_import(step["class"])
+    for node_config in config['pipepline']:
+        the_class=my_import(node_config["class"])
         obj=the_class()
-        mod_config = step['mod_config']
-        inputs=obj.execute(inputs, mod_config)
+        inputs=obj.execute(inputs, node_config)
         results.append(inputs['data'])
 
 if __name__=="__main__":
+    print("start")
     config_file=sys.argv[1]
     execute(config_file)
+    print("DONE")

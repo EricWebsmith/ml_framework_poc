@@ -3,6 +3,8 @@
 data/
 *.model
 config.json
+tatanic2.csv
+tatanic3.csv
 
 
 ## Ignore Visual Studio temporary files, build results, and

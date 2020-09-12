@@ -40,13 +40,14 @@
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "component1";
             // 
-            // UserControl1
+            // ActivityControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.nameLabel);
-            this.Name = "UserControl1";
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Name = "ActivityControl";
             this.Size = new System.Drawing.Size(148, 84);
             this.ResumeLayout(false);
             this.PerformLayout();

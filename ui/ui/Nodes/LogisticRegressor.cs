@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-namespace ui.Activities
+namespace ui
 {
-    public class LogisticRegressor : Activity
+    public class LogisticRegressor : Classifier
     {
         [CategoryAttribute("Machine Learning")]
         public string Features { get; set; }
@@ -16,6 +14,7 @@ namespace ui.Activities
         [CategoryAttribute("Machine Learning")]
         public string Model_Path { get; set; }
 
-        public override string ClassName { get { return "ml_modules.LogisticRegressor"; } }
+        [Display(Description ="逻辑回归")]
+        public override string ClassName { get { return "ml_nodes.LogisticRegressor"; } }
     }
 }

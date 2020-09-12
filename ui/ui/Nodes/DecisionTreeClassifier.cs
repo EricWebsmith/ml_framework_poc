@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
-namespace ui.Activities
+namespace ui
 {
-    public class DecisionTreeClassifier : Activity
+    public enum DecisionTreeCriterion
+    {
+        gini,
+        entropy
+    }
+
+    public class DecisionTreeClassifier : Node
     {
         [CategoryAttribute("Machine Learning")]
         public string Features { get; set; }
@@ -19,7 +22,9 @@ namespace ui.Activities
         [CategoryAttribute("Machine Learning")]
         public string Model_Path { get; set; }
 
+        [CategoryAttribute("Machine Learning")]
+        public DecisionTreeCriterion Criterion { get; set; }
 
-        public override string ClassName { get { return "ml_modules.DecisionTreeClassifier"; } }
+        public override string ClassName { get { return "ml_nodes.DecisionTreeClassifier"; } }
     }
 }

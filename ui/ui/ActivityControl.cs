@@ -15,8 +15,8 @@ namespace ui
             InitializeComponent();
         }
 
-        Activity _activity;
-        public Activity Activity {
+        Node _activity;
+        public Node Activity {
             get
             {
                 return _activity;

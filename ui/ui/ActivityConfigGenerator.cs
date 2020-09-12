@@ -6,15 +6,19 @@ namespace ui
 {
     public static class ActivityConfigGenerator
     {
-        public static string Generate(IEnumerable<Activity> activities)
+        public static string Generate(IEnumerable<Node> activities)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{\"model_id\":\"13254654\",\"model_name\":\"my_model\",\"pipepline\":[");
-            foreach(Activity activity in activities)
+            foreach(Node activity in activities)
             {
-                sb.Append($"{{\"class\":\"{activity.ClassName}\",\"mod_config\":{{");
+                sb.Append("{");
                 var properties = activity.GetType().GetProperties();
-                for(int i = 0; i < properties.Length; i++)
+                var p_classname = properties.Where(p => p.Name == "ClassName").First();
+                sb.Append($"\"class\":\"{p_classname.GetValue(activity)}\",");
+
+                var otherProperties = properties.Where(p => p.Name != "ClassName");
+                for (int i = 0; i < properties.Length; i++)
                 {
                     var pi = properties[i];
                     //if (pi.Name == "Name") { continue; }
@@ -38,7 +42,7 @@ namespace ui
                     }
                     
                 }
-                sb.Append("}}");
+                sb.Append("}");
                 if(activity!=activities.Last())
                 {
                     sb.Append(",");

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
-namespace ui.Activities
+namespace ui
 {
-    public class GradientBoostingClassifier : Activity
+    public class GradientBoostingClassifier : Node
     {
         [CategoryAttribute("Machine Learning")]
         public string Features { get; set; }
@@ -23,6 +20,6 @@ namespace ui.Activities
         public string Model_Path { get; set; }
 
 
-        public override string ClassName { get { return "ml_modules.DecisionTreeClassifier"; } }
+        public override string ClassName { get { return "ml_nodes.DecisionTreeClassifier"; } }
     }
 }

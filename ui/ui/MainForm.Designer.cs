@@ -1,6 +1,6 @@
 ﻿namespace ui
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -35,6 +35,12 @@
             this.moveDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workflowGroupBox = new System.Windows.Forms.GroupBox();
             this.buttonGroupBox = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.elasticNetButton = new System.Windows.Forms.Button();
+            this.linearRegressorButton = new System.Windows.Forms.Button();
             this.gradientBoostingClassifierButton = new System.Windows.Forms.Button();
             this.logisticRegressorButton = new System.Windows.Forms.Button();
             this.decisionTreeButton = new System.Windows.Forms.Button();
@@ -42,6 +48,7 @@
             this.csvExporterButton = new System.Windows.Forms.Button();
             this.csvImporterButton = new System.Windows.Forms.Button();
             this.propertyGroupBox = new System.Windows.Forms.GroupBox();
+            this.saveButton = new System.Windows.Forms.Button();
             this.executeButton = new System.Windows.Forms.Button();
             this.activityContextMenuStrip.SuspendLayout();
             this.buttonGroupBox.SuspendLayout();
@@ -92,6 +99,12 @@
             // 
             // buttonGroupBox
             // 
+            this.buttonGroupBox.Controls.Add(this.label4);
+            this.buttonGroupBox.Controls.Add(this.label3);
+            this.buttonGroupBox.Controls.Add(this.label2);
+            this.buttonGroupBox.Controls.Add(this.label1);
+            this.buttonGroupBox.Controls.Add(this.elasticNetButton);
+            this.buttonGroupBox.Controls.Add(this.linearRegressorButton);
             this.buttonGroupBox.Controls.Add(this.gradientBoostingClassifierButton);
             this.buttonGroupBox.Controls.Add(this.logisticRegressorButton);
             this.buttonGroupBox.Controls.Add(this.decisionTreeButton);
@@ -107,9 +120,67 @@
             this.buttonGroupBox.TabStop = false;
             this.buttonGroupBox.Text = "Machine Learning Controls";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 322);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 20);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Regression";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Classification";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Preprocessing";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Data";
+            // 
+            // elasticNetButton
+            // 
+            this.elasticNetButton.Location = new System.Drawing.Point(7, 385);
+            this.elasticNetButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.elasticNetButton.Name = "elasticNetButton";
+            this.elasticNetButton.Size = new System.Drawing.Size(210, 31);
+            this.elasticNetButton.TabIndex = 0;
+            this.elasticNetButton.Text = "Elastic Net";
+            this.elasticNetButton.UseVisualStyleBackColor = true;
+            this.elasticNetButton.Click += new System.EventHandler(this.elasticNetButton_Click);
+            // 
+            // linearRegressorButton
+            // 
+            this.linearRegressorButton.Location = new System.Drawing.Point(6, 346);
+            this.linearRegressorButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.linearRegressorButton.Name = "linearRegressorButton";
+            this.linearRegressorButton.Size = new System.Drawing.Size(210, 31);
+            this.linearRegressorButton.TabIndex = 0;
+            this.linearRegressorButton.Text = "Linear Regressor";
+            this.linearRegressorButton.UseVisualStyleBackColor = true;
+            this.linearRegressorButton.Click += new System.EventHandler(this.linearRegressorButton_Click);
+            // 
             // gradientBoostingClassifierButton
             // 
-            this.gradientBoostingClassifierButton.Location = new System.Drawing.Point(8, 302);
+            this.gradientBoostingClassifierButton.Location = new System.Drawing.Point(8, 287);
             this.gradientBoostingClassifierButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gradientBoostingClassifierButton.Name = "gradientBoostingClassifierButton";
             this.gradientBoostingClassifierButton.Size = new System.Drawing.Size(210, 31);
@@ -120,7 +191,7 @@
             // 
             // logisticRegressorButton
             // 
-            this.logisticRegressorButton.Location = new System.Drawing.Point(8, 224);
+            this.logisticRegressorButton.Location = new System.Drawing.Point(8, 248);
             this.logisticRegressorButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.logisticRegressorButton.Name = "logisticRegressorButton";
             this.logisticRegressorButton.Size = new System.Drawing.Size(210, 31);
@@ -131,7 +202,7 @@
             // 
             // decisionTreeButton
             // 
-            this.decisionTreeButton.Location = new System.Drawing.Point(8, 263);
+            this.decisionTreeButton.Location = new System.Drawing.Point(8, 209);
             this.decisionTreeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.decisionTreeButton.Name = "decisionTreeButton";
             this.decisionTreeButton.Size = new System.Drawing.Size(210, 31);
@@ -154,7 +225,7 @@
             // 
             // csvExporterButton
             // 
-            this.csvExporterButton.Location = new System.Drawing.Point(8, 68);
+            this.csvExporterButton.Location = new System.Drawing.Point(8, 87);
             this.csvExporterButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.csvExporterButton.Name = "csvExporterButton";
             this.csvExporterButton.Size = new System.Drawing.Size(210, 31);
@@ -165,7 +236,7 @@
             // 
             // csvImporterButton
             // 
-            this.csvImporterButton.Location = new System.Drawing.Point(7, 29);
+            this.csvImporterButton.Location = new System.Drawing.Point(8, 48);
             this.csvImporterButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.csvImporterButton.Name = "csvImporterButton";
             this.csvImporterButton.Size = new System.Drawing.Size(210, 31);
@@ -176,6 +247,7 @@
             // 
             // propertyGroupBox
             // 
+            this.propertyGroupBox.Controls.Add(this.saveButton);
             this.propertyGroupBox.Controls.Add(this.executeButton);
             this.propertyGroupBox.Location = new System.Drawing.Point(480, 16);
             this.propertyGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -186,9 +258,20 @@
             this.propertyGroupBox.TabStop = false;
             this.propertyGroupBox.Text = "Property";
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(345, 555);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(127, 31);
+            this.saveButton.TabIndex = 0;
+            this.saveButton.Text = "Save Config";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // executeButton
             // 
-            this.executeButton.Location = new System.Drawing.Point(496, 555);
+            this.executeButton.Location = new System.Drawing.Point(487, 555);
             this.executeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.executeButton.Name = "executeButton";
             this.executeButton.Size = new System.Drawing.Size(86, 31);
@@ -197,7 +280,7 @@
             this.executeButton.UseVisualStyleBackColor = true;
             this.executeButton.Click += new System.EventHandler(this.executeButton_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -205,11 +288,12 @@
             this.Controls.Add(this.propertyGroupBox);
             this.Controls.Add(this.buttonGroupBox);
             this.Controls.Add(this.workflowGroupBox);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Demo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.activityContextMenuStrip.ResumeLayout(false);
             this.buttonGroupBox.ResumeLayout(false);
+            this.buttonGroupBox.PerformLayout();
             this.propertyGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -219,7 +303,6 @@
         private System.Windows.Forms.ContextMenuStrip activityContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveUpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem moveDownToolStripMenuItem;
         private System.Windows.Forms.GroupBox workflowGroupBox;
         private System.Windows.Forms.GroupBox buttonGroupBox;
@@ -227,13 +310,17 @@
         private System.Windows.Forms.Button csvImporterButton;
         private System.Windows.Forms.GroupBox propertyGroupBox;
         private System.Windows.Forms.Button executeButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button OrdinalEncoder;
         private System.Windows.Forms.Button logisticRegressorButton;
         private System.Windows.Forms.Button decisionTreeButton;
         private System.Windows.Forms.Button ordinalEncoderButton;
         private System.Windows.Forms.Button gradientBoostingClassifierButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button elasticNetButton;
+        private System.Windows.Forms.Button linearRegressorButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 

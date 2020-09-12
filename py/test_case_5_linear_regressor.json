@@ -1,0 +1,1 @@
+{"model_id":"13254654","model_name":"my_model","pipepline":[{"class":"ml_nodes.CsvImporter","filepath":"salary.csv","classname":"ml_nodes.CsvImporter","name":""},{"class":"ml_nodes.LinearRegressor","features":"developer_salary","label":"machine_learning_salary","model_path":"linear.model","fit_intercept":"True","classname":"ml_nodes.LinearRegressor","name":""}]}

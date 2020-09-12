@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
-using ui.Activities;
 
 namespace ui
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         PropertyGrid activityPropertyGrid = new PropertyGrid();
-        List<Activity> Activities = new List<Activity>();
+        List<Node> Activities = new List<Node>();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -41,7 +43,7 @@ namespace ui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Activities.Add(new CsvImporterActivity());
+            Activities.Add(new CsvImporter());
             Refresh();
         }
 
@@ -69,17 +71,28 @@ namespace ui
             ActivityControl activityControl = (ActivityControl)sender;
             activityPropertyGrid.SelectedObject = activityControl.Activity;
             activityPropertyGrid.Text = activityControl.Activity.GetType().Name;
+            // set style
+            var boldFont = new Font(activityControl.Font, FontStyle.Bold);
+            var regularFont = new Font(activityControl.Font, FontStyle.Regular);
+            
+            foreach(var control in workflowGroupBox.Controls)
+            {
+                ActivityControl ac = (ActivityControl)control;
+                ac.Font = regularFont;
+            }
+
+            activityControl.Font = boldFont;
         }
 
         private void csvImporterButton_Click(object sender, EventArgs e)
         {
-            Activities.Add(new CsvImporterActivity());
+            Activities.Add(new CsvImporter());
             Refresh();
         }
 
         private void csvExporterButton_Click(object sender, EventArgs e)
         {
-            Activities.Add(new CsvExporterActivity());
+            Activities.Add(new CsvExporter());
             Refresh();
         }
 
@@ -104,6 +117,18 @@ namespace ui
         private void gradientBoostingClassifierButton_Click(object sender, EventArgs e)
         {
             Activities.Add(new GradientBoostingClassifier());
+            Refresh();
+        }
+
+        private void linearRegressorButton_Click(object sender, EventArgs e)
+        {
+            Activities.Add(new LinearRegressor());
+            Refresh();
+        }
+
+        private void elasticNetButton_Click(object sender, EventArgs e)
+        {
+            Activities.Add(new ElasticNet());
             Refresh();
         }
 
@@ -143,21 +168,57 @@ namespace ui
             Refresh();
         }
 
-        private void executeButton_Click(object sender, EventArgs e)
+        private void Save()
         {
             string config = ActivityConfigGenerator.Generate(Activities);
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(@"D:\projects\ml_framework_poc\py\config.json"))
+            string config_file_path = ConfigurationManager.AppSettings["config_file_path"];
+            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(config_file_path))
             {
                 sw.Write(config);
                 sw.Flush();
                 sw.Close();
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void executeButton_Click(object sender, EventArgs e)
+        {
+            Save();
 
             //System.Diagnostics.Process p = new System.Diagnostics.Process();
-            //p.StartInfo.UseShellExecute = false;
-            //p.StartInfo.FileName = @"cmd python D:\projects\ml_framework_poc\py\demo.py D:\projects\ml_framework_poc\py\config.json";
-            //p.StartInfo.CreateNoWindow = true;
-            //p.Start();
+            //p.StartInfo.UseShellExecute = true;
+            //p.StartInfo.FileName = @"python.exe";
+            //p.StartInfo.Arguments = @"D:\projects\ml_framework_poc\py\job_executor.py D:\projects\ml_framework_poc\py\config.json";
+            //p.StartInfo.CreateNoWindow = false;
+            string outputString;
+            string error;
+            ProcessStartInfo prcStartInfo = new ProcessStartInfo
+            {
+                // full path of the Python interpreter 'python.exe'
+                FileName = "python.exe", // string.Format(@"""{0}""", "python.exe"),
+                WorkingDirectory = @"D:\projects\ml_framework_poc\py\",
+                Arguments = @"job_executor.py config.json",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError =true,
+            };
+
+            using (Process process = Process.Start(prcStartInfo))
+            {
+                // read standard output JSON string
+                using (StreamReader myStreamReader = process.StandardOutput)
+                {
+                    outputString = myStreamReader.ReadToEnd();
+                    error = process.StandardError.ReadToEnd();
+                    process.WaitForExit();
+                }
+            }
+
+            MessageBox.Show(outputString + error);
         }
 
 

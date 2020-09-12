@@ -1,1 +1,24 @@
-{"model_id":"13254654","model_name":"rnn1","pipepline":[{"class":"ml_modules.CsvImporter","mod_config":{"filepath":"/projects/ml_framework_poc/py/tatanic.csv","classname":"ml_modules.CsvImporter","name":""}},{"class":"ml_modules.OrdinalEncoder","mod_config":{"columns":"Sex","classname":"ml_modules.OrdinalEncoder","name":""}},{"class":"ml_modules.DecisionTreeClassifier","mod_config":{"features":"Pclass,Sex,SibSp,Parch,Fare","label":"Survived","max_depth":5,"model_path":"dt.model","classname":"ml_modules.DecisionTreeClassifier","name":""}}]}
+{
+    "model_id": "13254654", 
+    "model_name": "rnn1", 
+    "pipepline": [
+        {
+            "class": "ml_nodes.CsvImporter", 
+            "filepath": "/projects/ml_framework_poc/py/tatanic.csv", 
+            "name": ""
+        }, 
+        {
+            "class": "ml_nodes.OrdinalEncoder", 
+            "columns": "Sex", 
+            "name": ""
+        }, 
+        {
+            "class": "ml_nodes.DecisionTreeClassifier", 
+            "features": "Pclass,Sex,SibSp,Parch,Fare", 
+            "label": "Survived", 
+            "max_depth": 5, 
+            "model_path": "dt.model", 
+            "name": ""
+        }
+    ]
+}
