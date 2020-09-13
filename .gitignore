@@ -1,6 +1,8 @@
 #this project
 
 data/
+__pycache__/
+.ipynb_checkpoints/
 *.model
 config.json
 tatanic2.csv
