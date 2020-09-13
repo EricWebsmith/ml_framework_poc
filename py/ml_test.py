@@ -5,7 +5,7 @@ import job_executor
 class MLTests(unittest.TestCase):
 
     def test_lr(self):
-        job_executor.execute("py/test_cases/test_case_1_lr.json")
+        job_executor.execute("test_cases/test_case_1_lr.json")
 
     def test_dt(self):
         job_executor.execute("test_cases/test_case_2_decision_tree.json")
