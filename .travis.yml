@@ -23,7 +23,7 @@ before_script:
 
 script:
    pwd
-   pytest
+   pytest --cov=.
 
 after_success:
   - coveralls

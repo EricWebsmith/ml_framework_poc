@@ -5,8 +5,8 @@ __pycache__/
 .ipynb_checkpoints/
 *.model
 config.json
-tatanic2.csv
-tatanic3.csv
+titanic2.csv
+titanic3.csv
 
 
 ## Ignore Visual Studio temporary files, build results, and
