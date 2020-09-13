@@ -17,9 +17,6 @@ install:
   - pip install pytest
   - pip install pytest-cov
   - pip install coveralls
-  - pip install numpy
-  - pip install sciket-learn
-  - pip install 
 
 before_script:
    cd py
