@@ -1,11 +1,8 @@
 # Build Status & Coverage & Maintainability & License
 
 [![Build Status](https://travis-ci.org/EricWebsmith/ml_framework_poc.svg?branch=master)](https://travis-ci.org/EricWebsmith/ml_framework_poc)
-
 [![Build status](https://ci.appveyor.com/api/projects/status/oyn44afaq6amw3w9?svg=true)](https://ci.appveyor.com/project/juwikuang/ml-framework-poc)
-
 [![Circle CI](https://circleci.com/gh/EricWebsmith/ml_framework_poc.svg?style=svg)](https://circleci.com/gh/EricWebsmith/ml_framework_poc)
-
 [![Coverage Status](https://coveralls.io/repos/github/EricWebsmith/ml_framework_poc/badge.svg?branch=master)](https://coveralls.io/github/EricWebsmith/ml_framework_poc?branch=master)
 
 # UI
