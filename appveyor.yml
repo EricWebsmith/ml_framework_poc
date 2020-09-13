@@ -5,11 +5,9 @@ branches:
   # whitelist
   only:
     - master
-    - development
 
 environment:
   matrix:
-    - PYTHON: "C:\\Python36-x64"
     - PYTHON: "C:\\Python37-x64"
     - PYTHON: "C:\\Python38-x64"
 
@@ -29,12 +27,14 @@ install:
   - "%PYTHON%\\python.exe -m pip install pytest"
   - "%PYTHON%\\python.exe -m pip install -r requirements_ci.txt"
 
+before_script:
+  - cd py
 
 test_script:
   - "%PYTHON%\\python.exe -m pytest"
 
 after_test:
-  - "%PYTHON%\\python.exe  setup.py bdist_wheel"
+  - cd ..
 
 artifacts:
   - path: dist\*
