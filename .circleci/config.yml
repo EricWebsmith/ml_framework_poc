@@ -7,55 +7,9 @@ workflows:
   version: 2
   test:
     jobs:
-      - test-3.6
       - test-3.7
 
 jobs:
-  test-3.6:
-    docker:
-      - image: circleci/python:3.6-stretch
-
-    working_directory: ~/repo/py
-
-    steps:
-      - checkout
-      - run: sudo chown -R circleci:circleci /usr/local/bin
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-py36-dependencies-{{ checksum "requirements_ci.txt" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-py36-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements_ci.txt
-            pip install pytest
-            pip install pytest-cov
-
-
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-py36-dependencies-{{ checksum "requirements.txt" }}
-
-
-      # run tests!
-      - run:
-          name: run tests
-          command: |
-            . venv/bin/activate
-            pytest
-          no_output_timeout: 30m
-
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
 
   test-3.7:
     docker:
@@ -95,6 +49,9 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            pwd
+            cd py
+            ls
             pytest
           no_output_timeout: 30m
 
