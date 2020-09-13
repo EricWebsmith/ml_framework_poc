@@ -27,7 +27,7 @@ install:
   - "%PYTHON%\\python.exe -m pip install pytest"
   - "%PYTHON%\\python.exe -m pip install -r requirements_ci.txt"
 
-before_script:
+before_test:
   - cd py
 
 test_script:
