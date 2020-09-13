@@ -1,6 +1,5 @@
 combo
 joblib
-keras
 matplotlib
 nose
 numpy>=1.13
@@ -11,5 +10,4 @@ scikit_learn>=0.19.1
 six
 statsmodels
 suod
-tensorflow
 xgboost

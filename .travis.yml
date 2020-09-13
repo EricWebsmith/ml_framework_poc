@@ -17,10 +17,13 @@ install:
   - pip install pytest
   - pip install pytest-cov
   - pip install coveralls
+  - pip install numpy
+  - pip install sciket-learn
+  - pip install 
 
-# command to run tests
+before_script:cd py
 script:
-   pytest --cov=py/
+   pytest --cov=.
 
 after_success:
   - coveralls
