@@ -19,11 +19,11 @@ install:
   - pip install coveralls
 
 before_script:
-   cd py
+  - cd py
 
 script:
-   pwd
-   pytest --cov=.
+  - pwd
+  - pytest --cov=./
 
 after_success:
   - coveralls
