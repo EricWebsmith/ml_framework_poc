@@ -20,7 +20,7 @@ install:
 
 # command to run tests
 script:
-   pytest --cov=pyod/
+   pytest --cov=py/
 
 after_success:
   - coveralls
