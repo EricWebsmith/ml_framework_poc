@@ -21,9 +21,12 @@ install:
   - pip install sciket-learn
   - pip install 
 
-before_script:cd py
+before_script:
+   cd py
+
 script:
-   pytest --cov=.
+   pwd
+   pytest
 
 after_success:
   - coveralls
